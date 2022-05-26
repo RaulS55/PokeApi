@@ -38,6 +38,7 @@ dependencies:
   logger: ^1.1.0
   get_it: ^7.2.0
   cached_network_image: ^3.2.1
+  provider: ^6.0.3
 
 dev_dependencies:
   flutter_test:
