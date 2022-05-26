@@ -36,34 +36,70 @@ class _HomePageState extends State<HomePage> {
             child: SingleChildScrollView(
               child: GestureDetector(
                 onTap: () => FocusScope.of(context).unfocus(),
-                child: Container(
-                  color: Colores(homeController.selectPoke).color(),
-                  height: responsive.height - padding.top,
-                  child: Column(
-                    children: [
-                      SizedBox(height: responsive.hp(5)),
-                      Text(
-                        homeController.selectPoke.name,
-                        style:
-                            MyStyle.title.copyWith(fontSize: responsive.dp(5)),
-                      ),
-                      PokeImagen(
-                          responsive: responsive,
-                          pokemon: homeController.selectPoke),
-
-                      //FLECHAS
-                      const SelectorPoke(),
-                      PokeForm(pokemon: homeController.selectPoke),
-                      PokeSeach(),
-                      const RandomButtom()
-                    ],
+                child: Stack(children: [
+                  SizedBox(
+                    width: double.infinity - padding.top - padding.bottom,
+                    height: responsive.hp(90),
+                    child: CustomPaint(
+                      painter: _HeaderCurvo(homeController),
+                    ),
                   ),
-                ),
+                  Container(
+                    color: Colors.transparent,
+                    child: Column(
+                      children: [
+                        SizedBox(height: responsive.hp(2)),
+                        Text(
+                          homeController.selectPoke.name,
+                          style: MyStyle.title
+                              .copyWith(fontSize: responsive.dp(5)),
+                        ),
+                        PokeImagen(
+                            responsive: responsive,
+                            pokemon: homeController.selectPoke),
+
+                        //FLECHAS
+                        const SelectorPoke(),
+                        PokeForm(pokemon: homeController.selectPoke),
+                        PokeSeach(),
+                        const RandomButtom()
+                      ],
+                    ),
+                  )
+                ]),
               ),
             ),
           ),
         );
       },
     );
+  }
+}
+
+class _HeaderCurvo extends CustomPainter {
+  final homeController;
+
+  _HeaderCurvo(this.homeController);
+  @override
+  void paint(Canvas canvas, Size size) {
+    final Paint lapiz = Paint();
+    lapiz.color = Colores(homeController.selectPoke).color();
+    lapiz.style = PaintingStyle.fill;
+    lapiz.strokeWidth = 5;
+
+    final path = Path();
+    path.lineTo(0, 0);
+    path.lineTo(0, size.height * 0.40);
+    path.quadraticBezierTo(
+        size.width * 0.5, size.height * 0.55, size.width, size.height * 0.40);
+    path.lineTo(size.width, size.height * 0.40);
+    path.lineTo(size.width, 0);
+
+    canvas.drawPath(path, lapiz);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return true;
   }
 }

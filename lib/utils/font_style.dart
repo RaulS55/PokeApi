@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 abstract class MyStyle {
   static const normal = TextStyle(color: Colors.black, fontSize: 15);
+  static const whiteNormal = TextStyle(color: Colors.white, fontSize: 18);
   static const bold = TextStyle(color: Colors.black, fontSize: 18);
   static const whiteBold = TextStyle(color: Colors.white, fontSize: 18);
   static const id = TextStyle(color: Colors.white, fontSize: 25);

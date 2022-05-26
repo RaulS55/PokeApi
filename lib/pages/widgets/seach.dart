@@ -30,37 +30,50 @@ class PokeSeach extends StatelessWidget {
       padding: const EdgeInsets.all(15).copyWith(bottom: 35),
       child: Form(
           key: homeController.formKey,
-          child: TextFormField(
-            onChanged: (value) {
-              if (value.isNotEmpty) _value = int.parse(value);
-            },
-            inputFormatters: [
-              FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))
-            ],
-            textInputAction: TextInputAction.search,
-            keyboardType: TextInputType.number,
-            decoration: InputDecoration(
-                label: const Text("Buscar por ID"),
-                suffixIcon: CupertinoButton(
-                    padding: EdgeInsets.zero,
-                    child: Icon(
-                      Icons.search,
-                      size: responsive.wp(7),
-                      color: Colores(pokemons[homeController.count]).color(),
-                    ),
-                    onPressed: () => _submit(httpoke, homeController)),
-                fillColor: Colors.white,
-                filled: true),
-            cursorColor: Colores(pokemons[homeController.count]).color(),
-            style: MyStyle.bold,
-            onFieldSubmitted: (v) => _submit(httpoke, homeController),
-            validator: (text) {
-              if (int.parse(text!) < 1 || int.parse(text) > 151) {
-                return "Ingrese un ID entre 1 y 152";
-              } else {
-                return null;
-              }
-            },
+          child: Theme(
+            data: ThemeData(
+              colorSchemeSeed: Colores(pokemons[homeController.count]).color(),
+              //focusColor: Colores(pokemons[homeController.count]).color(),
+              //primaryColor: Colores(pokemons[homeController.count]).color()
+            ),
+            child: TextFormField(
+              onChanged: (value) {
+                if (value.isNotEmpty) _value = int.parse(value);
+              },
+              inputFormatters: [
+                FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))
+              ],
+              textInputAction: TextInputAction.search,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color:
+                              Colores(pokemons[homeController.count]).color()),
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(20))),
+                  label: const Text("Buscar por ID"),
+                  suffixIcon: CupertinoButton(
+                      padding: EdgeInsets.zero,
+                      child: Icon(
+                        Icons.search,
+                        size: responsive.wp(7),
+                        color: Colores(pokemons[homeController.count]).color(),
+                      ),
+                      onPressed: () => _submit(httpoke, homeController)),
+                  fillColor: Colors.white,
+                  filled: true),
+              cursorColor: Colores(pokemons[homeController.count]).color(),
+              style: MyStyle.bold,
+              onFieldSubmitted: (v) => _submit(httpoke, homeController),
+              validator: (text) {
+                if (int.parse(text!) < 1 || int.parse(text) > 151) {
+                  return "Ingrese un ID entre 1 y 152";
+                } else {
+                  return null;
+                }
+              },
+            ),
           )),
     );
   }
