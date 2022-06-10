@@ -1,7 +1,7 @@
 # pokeapp
 It is in an implementation of knowledge acquired in several courses in which it stands out:
   - API consumption in this case PokeApi
-  - User Interface development highlighting the use of CustomPainter
+  - User Interface development highlighting the use of CustomPainter and animations
   - Provider was implemented as a state manager
 ## Screenshots:
 
