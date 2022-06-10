@@ -1,6 +1,34 @@
 # pokeapp
+It is in an implementation of knowledge acquired in several courses in which it stands out:
+  - API consumption in this case PokeApi
+  - User Interface development highlighting the use of CustomPainter
+  - Provider was implemented as a state manager
+## Screenshots:
 
-A new Flutter project.
+<table>
+  <tbody>
+    <tr valign="top">
+      <td width="33%" align="center">
+        <br><br>
+        <img height="720px" src="https://user-images.githubusercontent.com/105321379/173102130-8fd5c4ed-47de-4d8a-9dd6-a46a83e8703a.gif">
+        <p><a>Next</a></p>
+      </td>
+      <td width="33%" align="center">
+        <br><br>
+        <img height="720px" src="https://user-images.githubusercontent.com/105321379/173102160-798c2968-bc74-4a92-83a3-595d5458125d.gif">
+        <p><a>Search</a></p>
+      </td>
+      <td width="33%" align="center">
+        <br><br>
+        <img height="720px" src="https://user-images.githubusercontent.com/105321379/173102185-6c2df9a9-2222-4a39-ad8d-ff66ceba4328.gif">
+        <p><a>Random</a></p>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+<br>
 
 ## Getting Started
 
