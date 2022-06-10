@@ -1,4 +1,6 @@
 # pokeapp
+![pokeapi](https://user-images.githubusercontent.com/105321379/173105573-3b919668-63c0-4441-98ce-1b5a033420b7.png)
+
 It is in an implementation of knowledge acquired in several courses in which it stands out:
   - API consumption in this case PokeApi
   - User Interface development highlighting the use of CustomPainter and animations
